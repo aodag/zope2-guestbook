@@ -1,0 +1,18 @@
+<html>
+<body>
+<form action="addGuestbook" method="post">
+<ul>
+<li><label for="id">ID</label>
+    <input id="id" name="id">
+</li>
+<li><label for="title">TITLE</label>
+    <input id="title" name="title">
+</li>
+<li>
+    <input type="submit">
+</li>
+
+</ul>
+</form>
+</body>
+</html>

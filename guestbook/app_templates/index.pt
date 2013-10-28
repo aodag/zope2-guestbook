@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title tal:content="context/title"></title>
+  </head>
+  <body>
+    <h1 tal:content="context/title"></h1>
+    <div id="form-area">
+      <p>書き込みをどうぞ。</p>
+      <form method="post" tal:attributes="action context/post/url">
+        <table>
+          <tr>
+            <th>名前</th>
+            <td>
+              <input type="text" size="20" name="name" />
+            </td>
+          </tr>
+          <tr>
+            <th>コメント</th>
+            <td>
+              <textarea rows="5" cols="40" name="comment"></textarea>
+            </td>
+          </tr>
+        </table>
+        <p><button type="submit">送信</button></p>
+      </form>
+    </div>
+    <div id="entries-area">
+      <h2>これまでの書き込み</h2>
+      <div class="entry" tal:repeat="greeting context/comments">
+        <h3><span tal:content="greeting/name">greeting.name</span> さんの書き込み(<span tal:content="python:view.format_datetime(greeting['created_at'])">greeting.create_at</span>):</h3>
+        <p tal:content="structure python:view.nl2br(greeting['comment'])">greeting.comment</p>
+      </div>
+    </div>
+  </body>
+</html>
